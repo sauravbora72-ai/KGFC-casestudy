@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study – Kaziranga Greens Football Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red:    #b81c1c;
+    --red2:   #d32f2f;
+    --navy:   #0d1b3e;
+    --gold:   #f5c518;
+    --white:  #ffffff;
+    --light:  #f4f4f4;
+    --dark:   #0a0a0a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: #111;
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    background: var(--navy);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-img {
+    width: 100%;
+    height: 45vh;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.75);
+  }
+  .hero-brand {
+    position: absolute;
+    top: 20px; left: 24px;
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Oswald', sans-serif;
+    color: var(--gold);
+    font-size: 1.1rem;
+    letter-spacing: .5px;
+  }
+  .hero-brand svg { width: 32px; height: 32px; }
+  .hero-bottom {
+    flex: 1;
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 60px;
+    gap: 40px;
+    position: relative;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .hero-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(5rem, 10vw, 9rem);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--gold);
+    letter-spacing: -2px;
+  }
+  .hero-study {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(5rem, 10vw, 9rem);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: rgba(255,255,255,0.12);
+    display: inline-block;
+    padding: 0 16px;
+    border: 4px solid var(--navy);
+  }
+  .hero-right {
+    text-align: center;
+    max-width: 420px;
+  }
+  .hero-date {
+    font-size: .85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    opacity: .8;
+  }
+  .hero-subtitle {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.7rem;
+    background: var(--navy);
+    color: var(--gold);
+    padding: 8px 18px;
+    margin-bottom: 6px;
+    display: inline-block;
+  }
+  .hero-tagline { font-size: 1.05rem; opacity: .85; }
+  .soccer-ball {
+    width: 80px; margin-top: 20px;
+    animation: bounce 1.8s ease-in-out infinite;
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(-14px); }
+  }
+
+  /* ── SECTION BASE ── */
+  section {
+    padding: 80px 60px;
+  }
+
+  /* ── OVERVIEW ── */
+  .overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+  }
+  .overview-left {
+    background: var(--navy);
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .overview-right {
+    background: var(--red);
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+  }
+  .section-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .headline-box {
+    background: var(--red);
+    padding: 18px 22px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    border-radius: 4px;
+  }
+  .headline-box .accent { color: var(--gold); }
+  .sub-line {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .sub-line .accent-gold { color: var(--gold); font-weight: 700; }
+  .sub-line .accent-bold { font-weight: 700; }
+  .metrics-list {
+    list-style: none;
+    background: rgba(0,0,0,0.3);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .metrics-list li {
+    padding: 12px 20px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .metrics-list li:last-child { border-bottom: none; }
+  .tagline-bar {
+    background: #111;
+    color: var(--white);
+    padding: 14px 20px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .tagline-bar .red-word { color: var(--red2); }
+  .tagline-bar .gold-word { color: var(--gold); }
+
+  .toc-item {
+    display: flex;
+    align-items: baseline;
+    gap: 22px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding-bottom: 22px;
+  }
+  .toc-item:last-child { border-bottom: none; }
+  .toc-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.6rem;
+    opacity: .5;
+    min-width: 42px;
+  }
+  .toc-text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.6rem;
+    color: var(--gold);
+    line-height: 1.2;
+  }
+
+  /* ── INTRODUCTION ── */
+  .intro {
+    background: #1a1a2e;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .intro-avatar {
+    width: 100%;
+    max-width: 260px;
+    border-radius: 12px;
+    border: 4px solid var(--gold);
+    display: block;
+  }
+  .intro h2 { font-family: 'Oswald', sans-serif; font-size: 2.4rem; color: var(--gold); margin-bottom: 20px; }
+  .intro p { font-size: 1.05rem; line-height: 1.8; margin-bottom: 14px; color: rgba(255,255,255,.88); }
+  .intro .point { color: var(--gold); font-weight: 700; }
+  .intro .skip-note {
+    font-size: .85rem;
+    opacity: .55;
+    font-style: italic;
+    margin-bottom: 28px;
+  }
+
+  /* ── PERFORMANCE ── */
+  .performance {
+    background: var(--navy);
+    text-align: center;
+  }
+  .performance h2 { font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 8px; }
+  .performance .sub { font-size: 1rem; opacity: .7; margin-bottom: 48px; }
+  .client-meta {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  .meta-item { text-align: left; }
+  .meta-label { font-size: .8rem; letter-spacing: 2px; text-transform: uppercase; opacity: .55; margin-bottom: 4px; }
+  .meta-value { font-weight: 700; font-size: 1rem; }
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .result-card {
+    background: var(--red);
+    border-radius: 10px;
+    padding: 36px 24px;
+    text-align: center;
+  }
+  .result-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .result-label { font-size: .9rem; opacity: .85; line-height: 1.4; }
+
+  /* ── PROBLEM ── */
+  .problem {
+    background: var(--red);
+    text-align: center;
+  }
+  .problem h2 { font-family: 'Oswald', sans-serif; font-size: 2.6rem; color: var(--white); margin-bottom: 40px; }
+  .problem-list {
+    list-style: none;
+    max-width: 680px;
+    margin: 0 auto 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .problem-list li {
+    background: rgba(0,0,0,0.25);
+    border-left: 5px solid var(--gold);
+    padding: 16px 24px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-align: left;
+    border-radius: 0 6px 6px 0;
+  }
+  .cost-box {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--gold);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.6rem;
+    padding: 18px 36px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+  }
+  .cost-note { font-size: .9rem; opacity: .75; }
+
+  /* ── SOLUTION ── */
+  .solution {
+    background: var(--navy);
+  }
+  .solution h2 { font-family: 'Oswald', sans-serif; font-size: 2.2rem; color: var(--gold); margin-bottom: 8px; }
+  .solution .sub { font-size: .95rem; opacity: .65; margin-bottom: 48px; }
+  .solution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .sol-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 32px 28px;
+  }
+  .sol-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .sol-title { font-family: 'Oswald', sans-serif; font-size: 1.3rem; color: var(--white); margin-bottom: 14px; }
+  .sol-desc { font-size: .93rem; line-height: 1.7; opacity: .8; margin-bottom: 16px; }
+  .sol-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .sol-tag {
+    background: var(--red);
+    color: var(--white);
+    font-size: .75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+
+  /* ── COMPARISON ── */
+  .comparison {
+    background: #0f0f1a;
+    text-align: center;
+  }
+  .comparison h2 { font-family: 'Oswald', sans-serif; font-size: 2.4rem; color: var(--gold); margin-bottom: 48px; }
+  .comp-table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 36px;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+  }
+  .comp-table th {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    opacity: .55;
+  }
+  .comp-table td {
+    padding: 18px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .comp-table tr td:first-child { background: rgba(255,255,255,0.05); border-radius: 8px 0 0 8px; color: rgba(255,255,255,.7); }
+  .comp-table tr td:last-child  { background: var(--red); border-radius: 0 8px 8px 0; color: var(--gold); }
+  .vs-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--dark);
+    font-family: 'Oswald', sans-serif;
+    font-size: .9rem;
+    padding: 4px 12px;
+    border-radius: 4px;
+    letter-spacing: 2px;
+    margin-bottom: 36px;
+  }
+  .enquiry-note {
+    font-size: .92rem;
+    opacity: .7;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ── GROWTH PHASES ── */
+  .phases {
+    background: var(--navy);
+  }
+  .phases h2 { font-family: 'Oswald', sans-serif; font-size: 2.4rem; color: var(--gold); margin-bottom: 48px; }
+  .phases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .phase-card {
+    background: rgba(255,255,255,0.04);
+    border-top: 5px solid var(--gold);
+    border-radius: 0 0 10px 10px;
+    padding: 30px 24px;
+  }
+  .phase-num { font-family: 'Oswald', sans-serif; font-size: 1rem; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; opacity: .7; }
+  .phase-title { font-family: 'Oswald', sans-serif; font-size: 1.4rem; margin-bottom: 14px; }
+  .phase-desc { font-size: .92rem; line-height: 1.7; opacity: .8; margin-bottom: 20px; }
+  .phase-tags { display: flex; flex-direction: column; gap: 8px; }
+  .phase-tag { background: rgba(255,255,255,0.08); padding: 8px 14px; border-radius: 4px; font-size: .85rem; font-weight: 600; }
+  .phase-insight {
+    margin-top: 48px;
+    background: var(--red);
+    border-radius: 8px;
+    padding: 28px 32px;
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: center;
+  }
+  .phase-insight strong { color: var(--gold); font-size: 1.1rem; display: block; margin-bottom: 8px; }
+
+  /* ── METRICS ── */
+  .metrics {
+    background: #0a0a14;
+    text-align: center;
+  }
+  .metrics h2 { font-family: 'Oswald', sans-serif; font-size: 2.4rem; color: var(--gold); margin-bottom: 48px; }
+  .metrics-big-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .metric-big {
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 36px 20px;
+  }
+  .metric-big .num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.5rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .metric-big .growth { color: var(--red2); font-weight: 700; font-size: 1rem; margin-bottom: 10px; }
+  .metric-big .desc { font-size: .85rem; opacity: .65; line-height: 1.5; }
+
+  /* ── SHIFT ── */
+  .shift {
+    background: var(--red);
+    text-align: center;
+    padding: 80px 60px;
+  }
+  .shift h2 { font-family: 'Oswald', sans-serif; font-size: 2.4rem; margin-bottom: 48px; }
+  .shift-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1000px;
+    margin: 0 auto 48px;
+  }
+  .shift-card {
+    background: rgba(0,0,0,0.25);
+    border-radius: 8px;
+    padding: 28px 20px;
+    text-align: left;
+  }
+  .shift-card h3 { font-family: 'Oswald', sans-serif; font-size: 1.1rem; color: var(--gold); margin-bottom: 10px; }
+  .shift-card p { font-size: .9rem; line-height: 1.7; opacity: .85; }
+  .shift-quote {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+    background: var(--navy);
+    display: inline-block;
+    padding: 16px 32px;
+    border-radius: 6px;
+  }
+  .shift-quote em { color: var(--gold); font-style: normal; }
+
+  /* ── TESTIMONIAL ── */
+  .testimonial {
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .testimonial-left h2 { font-family: 'Oswald', sans-serif; font-size: 2rem; color: var(--gold); margin-bottom: 10px; }
+  .testimonial-left .name { font-size: .95rem; opacity: .6; }
+  .testimonial-right {
+    background: rgba(255,255,255,0.05);
+    border-left: 5px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    padding: 32px 32px;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    font-style: italic;
+  }
+  .testimonial-right cite {
+    display: block;
+    margin-top: 16px;
+    font-style: normal;
+    font-size: .85rem;
+    opacity: .6;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ── CTA ── */
+  .cta {
+    background: var(--dark);
+    text-align: center;
+    padding: 100px 60px;
+  }
+  .cta h2 { font-family: 'Oswald', sans-serif; font-size: 2.6rem; color: var(--gold); margin-bottom: 20px; }
+  .cta .problem-reframe { font-size: 1.1rem; opacity: .75; max-width: 600px; margin: 0 auto 36px; line-height: 1.7; }
+  .cta .sprint {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .cta .sprint em { color: var(--gold); font-style: normal; }
+  .cta .sprint-desc { font-size: .95rem; opacity: .65; max-width: 500px; margin: 0 auto 36px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: #111;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 22px 52px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+    border: none;
+  }
+  .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(245,197,24,.4); }
+  .cta-sub { font-size: .8rem; opacity: .45; margin-top: 16px; }
+
+  /* ── DATA PROOF ── */
+  .data-proof {
+    background: var(--red);
+    padding: 80px 60px;
+    text-align: center;
+  }
+  .data-proof h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+  }
+  .data-proof .vs-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    color: var(--white);
+    background: rgba(0,0,0,0.35);
+    display: inline-block;
+    padding: 6px 24px;
+    border-radius: 4px;
+    margin-bottom: 48px;
+    letter-spacing: 4px;
+  }
+  .proof-container {
+    background: white;
+    border-radius: 12px;
+    padding: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .proof-views-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .proof-donut-card {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 14px 10px 10px;
+    color: white;
+    text-align: center;
+    position: relative;
+  }
+  .proof-donut-card .pdc-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+    font-size: .65rem;
+    opacity: .7;
+  }
+  .proof-donut-card .pdc-back { font-size: .8rem; opacity: .6; }
+  .proof-donut-card .pdc-title { font-size: .75rem; font-weight: 600; }
+  .proof-donut-card .pdc-period { font-size: .6rem; opacity: .5; margin-bottom: 10px; }
+  .donut-wrap {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 8px;
+  }
+  .donut-wrap svg { width: 100%; height: 100%; }
+  .donut-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: .75rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1.1;
+    text-align: center;
+  }
+  .proof-bottom-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+  .proof-profile-card {
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 14px;
+    text-align: left;
+  }
+  .ppc-handle { font-size: .75rem; font-weight: 700; color: #111; margin-bottom: 4px; }
+  .ppc-name { font-size: .7rem; color: #555; margin-bottom: 8px; }
+  .ppc-stats { display: flex; gap: 16px; margin-bottom: 8px; }
+  .ppc-stat { text-align: center; }
+  .ppc-stat .val { font-size: .85rem; font-weight: 700; color: #111; display: block; }
+  .ppc-stat .lbl { font-size: .6rem; color: #777; }
+  .ppc-bio { font-size: .65rem; color: #555; line-height: 1.4; margin-bottom: 8px; }
+  .ppc-dashboard { background: #e8e8e8; border-radius: 6px; padding: 8px 10px; font-size: .68rem; color: #333; }
+  .ppc-dashboard .views-highlight { color: #4caf50; font-weight: 700; }
+  .proof-dash-card {
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 14px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .pdc2-row { background: #e0e0e0; border-radius: 6px; padding: 10px 12px; }
+  .pdc2-row .label { font-size: .65rem; color: #666; margin-bottom: 3px; }
+  .pdc2-row .val { font-size: .78rem; font-weight: 700; color: #111; }
+  .pdc2-row .val .green { color: #4caf50; }
+  .proof-leads-card {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .lead-item {
+    background: #2a2a2a;
+    border-radius: 6px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .lead-avatar {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .65rem; font-weight: 700; color: white;
+  }
+  .lead-info { flex: 1; min-width: 0; }
+  .lead-info .ln { font-size: .7rem; font-weight: 600; color: white; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .lead-info .lt { font-size: .6rem; color: #aaa; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .lead-badge { background: #333; border: 1px solid #555; border-radius: 3px; font-size: .55rem; color: #ccc; padding: 1px 5px; }
+  /* overlap labels */
+  .views-vs-leads-overlay {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .ovl-views, .ovl-leads {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-shadow: 2px 2px 8px rgba(0,0,0,.6);
+  }
+  .ovl-vs {
+    background: var(--red);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--gold);
+    border: 3px solid var(--gold);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  .proof-inner-wrap { position: relative; }
+
+  /* Key metrics redesign */
+  .metrics {
+    background: var(--red);
+    text-align: center;
+  }
+  .metrics-header {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 48px;
+    letter-spacing: -1px;
+  }
+  .metrics-rows {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .metric-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: center;
+    background: var(--navy);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .metric-row .m-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: 900;
+    padding: 22px 24px;
+    text-align: left;
+    letter-spacing: .5px;
+  }
+  .metric-row .m-value {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: 900;
+    color: var(--gold);
+    padding: 22px 24px;
+    text-align: left;
+  }
+  .metric-row .m-badge {
+    background: white;
+    color: var(--navy);
+    font-family: 'Oswald', sans-serif;
+    font-size: .95rem;
+    font-weight: 900;
+    padding: 22px 20px;
+    min-width: 100px;
+    text-align: center;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #050508;
+    text-align: center;
+    padding: 30px;
+    font-size: .8rem;
+    opacity: .4;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    section { padding: 50px 24px; }
+    .overview, .testimonial { grid-template-columns: 1fr; }
+    .overview-right { padding: 40px 24px; }
+    .results-grid, .solution-grid, .phases-grid, .metrics-big-grid, .shift-grid { grid-template-columns: 1fr; }
+    .hero-bottom { flex-direction: column; padding: 30px 24px; }
+    .intro { grid-template-columns: 1fr; }
+    .intro-avatar { margin: 0 auto 24px; }
+    .comp-table { font-size: .85rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div style="position:relative;">
+    <!-- Placeholder gradient representing the football pitch photo -->
+    <div style="width:100%;height:45vh;background:linear-gradient(180deg,#1a2a1a 0%,#2d4a2d 60%,#1a2a1a 100%);display:flex;align-items:center;justify-content:center;">
+      <div style="text-align:center;opacity:.35;font-family:'Oswald',sans-serif;font-size:1.2rem;letter-spacing:4px;">KAZIRANGA GREENS FOOTBALL ACADEMY — TRAINING GROUND</div>
+    </div>
+    <div class="hero-brand">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="16" r="14" stroke="#f5c518" stroke-width="2"/>
+        <circle cx="16" cy="16" r="5" fill="#f5c518"/>
+        <line x1="16" y1="2" x2="16" y2="11" stroke="#f5c518" stroke-width="1.5"/>
+        <line x1="16" y1="21" x2="16" y2="30" stroke="#f5c518" stroke-width="1.5"/>
+        <line x1="2" y1="16" x2="11" y2="16" stroke="#f5c518" stroke-width="1.5"/>
+        <line x1="21" y1="16" x2="30" y2="16" stroke="#f5c518" stroke-width="1.5"/>
+      </svg>
+      CineCompass Creations
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="hero-left">
+      <div class="hero-title">CASE</div>
+      <div class="hero-study">STUDY</div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-date">November 10, 2025</div>
+      <div class="hero-subtitle">Kaziranga Greens Football Academy</div>
+      <div class="hero-tagline">A Residential Football Academy</div>
+      <div>
+        <svg class="soccer-ball" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="38" fill="white" stroke="#333" stroke-width="2"/>
+          <polygon points="40,14 52,22 47,36 33,36 28,22" fill="#222"/>
+          <polygon points="28,22 14,26 12,42 24,50 33,36" fill="#222"/>
+          <polygon points="52,22 66,26 68,42 56,50 47,36" fill="#222"/>
+          <polygon points="24,50 26,65 40,70 54,65 56,50 40,56" fill="#222"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="overview">
+  <div class="overview-left">
+    <div class="section-label">OVERVIEW</div>
+    <div class="headline-box">
+      We Helped a <span class="accent">Residential Football Academy</span> Generate
+      <span class="accent">80+ Admissions</span> and Build a
+      <span class="accent">$50,000+ Revenue Pipeline</span> in 90 Days.
+    </div>
+    <div class="sub-line">
+      From <span class="accent-gold">zero digital presence</span> to a predictable
+      <span class="accent-gold">inbound admissions system</span>—<span class="accent-bold">without paid ads.</span>
+    </div>
+    <ul class="metrics-list">
+      <li>⚡ 2M+ Views/Month</li>
+      <li>🎯 1,000+ Organic Leads</li>
+      <li>✅ 80+ Admissions</li>
+      <li>📲 100% New Digital Acquisition Channel</li>
+    </ul>
+    <div class="tagline-bar">
+      THIS <span class="red-word">WASN'T</span> LUCK. THIS WAS <span class="gold-word">A SYSTEM.</span>
+    </div>
+  </div>
+  <div class="overview-right">
+    <div class="toc-item">
+      <div class="toc-num">01</div>
+      <div class="toc-text">About Me</div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">02</div>
+      <div class="toc-text">Performance Overview</div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">03</div>
+      <div class="toc-text">Problem vs Solution</div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">04</div>
+      <div class="toc-text">Objective vs Results</div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">05</div>
+      <div class="toc-text">Testimonial and Conclusion</div>
+    </div>
+  </div>
+</div>
+
+<!-- INTRODUCTION -->
+<section class="intro">
+  <div>
+    <div style="width:180px;height:180px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--navy));border:4px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:3rem;color:var(--gold);">SB</div>
+  </div>
+  <div>
+    <p class="skip-note">*Skip this page to jump ahead to the Case Study. But if you want to know my journey, read on.</p>
+    <h2>Hello, I'm Saurav Borah!</h2>
+    <p>I come from a small village in NorthEast, India with no resources. I learned early that growth doesn't come from talent alone.</p>
+    <p><span class="point">👉 It comes from right processes and systems.</span></p>
+    <p>I built my career from scratch—no film school, no connections—just execution. That journey led me into high-performance storytelling. And while working on projects associated with brands like Red Bull, I learned that attention and trust directly impact results.</p>
+    <p>That's where I learned:<br><span class="point">👉 Content doesn't drive growth. Structured systems do.</span></p>
+    <p>After a near-fatal accident and multiple surgeries, that belief became stronger:<br><span class="point">👉 Systems win when everything else is unpredictable.</span></p>
+    <p>This case study shows how we applied that thinking to build a predictable admissions system.</p>
+  </div>
+</section>
+
+<!-- PERFORMANCE OVERVIEW -->
+<section class="performance">
+  <h2>Performance Overview</h2>
+  <p class="sub">From Zero to Predictable Admissions System in 90 Days</p>
+  <div class="client-meta">
+    <div class="meta-item">
+      <div class="meta-label">Client Type</div>
+      <div class="meta-value">Residential Football Academy</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Initial State</div>
+      <div class="meta-value">No structured digital acquisition system</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Goal</div>
+      <div class="meta-value">200–500 leads in 90 days</div>
+    </div>
+  </div>
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="result-num">1,000+</div>
+      <div class="result-label">Organic Leads Generated</div>
+    </div>
+    <div class="result-card">
+      <div class="result-num">80+</div>
+      <div class="result-label">Confirmed Admissions</div>
+    </div>
+    <div class="result-card">
+      <div class="result-num">$50K+</div>
+      <div class="result-label">Generated in Admission Revenue</div>
+    </div>
+  </div>
+</section>
+
+<!-- THE REAL PROBLEM -->
+<section class="problem">
+  <h2>The Real Problem Was Not Talent.<br>It Was Empty Seats.</h2>
+  <ul class="problem-list">
+    <li>Residential spots were not filling consistently</li>
+    <li>Admissions came in unpredictable waves</li>
+    <li>No structured system to generate or convert demand</li>
+    <li>Heavy dependence on referrals and offline reputation</li>
+  </ul>
+  <div class="cost-box">Every empty seat = lost revenue.</div>
+  <p class="cost-note">At this level, inconsistency isn't acceptable—it's expensive.</p>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution">
+  <h2>We Built a Structured Admission System</h2>
+  <p class="sub">Instead of random content and inconsistent efforts, we implemented:</p>
+  <div class="solution-grid">
+    <div class="sol-card">
+      <div class="sol-num">1.</div>
+      <div class="sol-title">Authority Content</div>
+      <p class="sol-desc">Strategic content engine showcasing training methodology, success stories, and coaching expertise. Built trust before prospects ever made contact—positioning the academy as the premier destination for serious development.</p>
+      <div class="sol-tags">
+        <span class="sol-tag">Educational Content</span>
+        <span class="sol-tag">Player Spotlights</span>
+        <span class="sol-tag">Behind the Scenes</span>
+      </div>
+    </div>
+    <div class="sol-card">
+      <div class="sol-num">2.</div>
+      <div class="sol-title">Trial Booking Funnel</div>
+      <p class="sol-desc">Seamless automated system capturing interest and converting it into scheduled trial sessions. Eliminated friction, reduced drop-offs, and ensured every qualified lead had a clear path to experiencing the academy firsthand.</p>
+      <div class="sol-tags">
+        <span class="sol-tag">Landing Pages</span>
+        <span class="sol-tag">Calendar Integration</span>
+        <span class="sol-tag">Automated Reminders</span>
+      </div>
+    </div>
+    <div class="sol-card">
+      <div class="sol-num">3.</div>
+      <div class="sol-title">Lead Nurturing System</div>
+      <p class="sol-desc">Automated email and SMS sequences educating prospects, addressing objections, and building urgency. Maintained engagement from first touch to enrollment decision—never letting a lead go cold.</p>
+      <div class="sol-tags">
+        <span class="sol-tag">Drip Campaigns</span>
+        <span class="sol-tag">Objection Handling</span>
+        <span class="sol-tag">Social Proof</span>
+      </div>
+    </div>
+    <div class="sol-card">
+      <div class="sol-num">4.</div>
+      <div class="sol-title">Conversion Frameworks</div>
+      <p class="sol-desc">Battle-tested sales scripts, objection handlers, and closing techniques optimized specifically for football academy admissions. Turned trial attendees into enrolled students with systematic precision.</p>
+      <div class="sol-tags">
+        <span class="sol-tag">Sales Scripts</span>
+        <span class="sol-tag">Trial-to-Enroll Process</span>
+        <span class="sol-tag">Follow-up Cadence</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="comparison">
+  <h2>Performance Comparison</h2>
+  <div class="vs-badge">EXPECTED &nbsp;VS/S&nbsp; ACTUAL</div>
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th>Conservative Projection</th>
+        <th></th>
+        <th>Results We Delivered</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>200–500 Organic Leads</td>
+        <td style="text-align:center;background:transparent;color:var(--gold);font-family:'Oswald',sans-serif;">→</td>
+        <td>500–1,000+ Organic Leads <br><small style="opacity:.7;font-size:.78rem;">(More than 2–5X Above Target)</small></td>
+      </tr>
+      <tr>
+        <td>50–100 Trial Bookings</td>
+        <td style="text-align:center;background:transparent;color:var(--gold);font-family:'Oswald',sans-serif;">→</td>
+        <td>400+ Trial Bookings <br><small style="opacity:.7;font-size:.78rem;">(2–4X Above Target)</small></td>
+      </tr>
+      <tr>
+        <td>10–15 Projected Admissions</td>
+        <td style="text-align:center;background:transparent;color:var(--gold);font-family:'Oswald',sans-serif;">→</td>
+        <td>80+ Admissions <br><small style="opacity:.7;font-size:.78rem;">(5X Above Target)</small></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="enquiry-note">Within a span of 90 days. On the first week we started getting 10–15 enquiries per day, which increased to 50+ enquiries per day by the end of Month 1.</p>
+</section>
+
+<!-- GROWTH PHASES -->
+<section class="phases">
+  <h2>Growth Phases (3 Phases)</h2>
+  <div class="phases-grid">
+    <div class="phase-card">
+      <div class="phase-num">Phase 1</div>
+      <div class="phase-title">Testing & Data Collection</div>
+      <p class="phase-desc">Launched multiple content formats, funnel variations, and messaging angles. Collected performance data on what resonated with the target audience.</p>
+      <div class="phase-tags">
+        <div class="phase-tag">📊 Content Testing</div>
+        <div class="phase-tag">🎯 Audience Research</div>
+        <div class="phase-tag">🔍 Funnel Validation</div>
+      </div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">Phase 2</div>
+      <div class="phase-title">Conversion Optimisation</div>
+      <p class="phase-desc">Analyzed performance data, doubled down on winning content, refined funnel conversion points, and improved lead quality scoring.</p>
+      <div class="phase-tags">
+        <div class="phase-tag">✅ Double Winners</div>
+        <div class="phase-tag">✂️ Cut Losers</div>
+        <div class="phase-tag">⚙️ Conversion Tuning</div>
+      </div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">Phase 3</div>
+      <div class="phase-title">Scaling & Expansion</div>
+      <p class="phase-desc">Amplified proven systems, increased content output, expanded audience reach, and built infrastructure to handle sustained high-volume lead flow.</p>
+      <div class="phase-tags">
+        <div class="phase-tag">📈 Volume Increase</div>
+        <div class="phase-tag">👥 Team Expansion</div>
+        <div class="phase-tag">🏗️ Systematize</div>
+      </div>
+    </div>
+  </div>
+  <div class="phase-insight">
+    <strong>GROWTH BECAME PREDICTABLE — NOT RANDOM</strong>
+    Each phase built on the previous. Data drove decisions. Results followed structure.
+  </div>
+</section>
+
+<!-- DATA PROOF -->
+<section class="data-proof">
+  <h2>Data Proof</h2>
+  <div class="vs-label">VIEWS &nbsp;V/S&nbsp; LEADS</div>
+
+  <div class="proof-container">
+    <div class="proof-inner-wrap">
+      <!-- Views donut row -->
+      <div class="proof-views-row">
+
+        <!-- Card 1: 172,926 -->
+        <div class="proof-donut-card">
+          <div class="pdc-period" style="font-size:.6rem;opacity:.5;text-align:left;padding-left:4px;">28 Dec – 3 Jan</div>
+          <div style="font-size:.65rem;opacity:.6;text-align:left;padding-left:4px;margin-bottom:8px;">Last 7 days ▾</div>
+          <div class="donut-wrap">
+            <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" fill="none" stroke="#333" stroke-width="12"/><circle cx="40" cy="40" r="32" fill="none" stroke="url(#g1)" stroke-width="12" stroke-dasharray="120 82" stroke-linecap="round" transform="rotate(-90 40 40)"/><defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#9c27b0"/><stop offset="100%" stop-color="#e91e63"/></linearGradient></defs></svg>
+            <div class="donut-center">Views<br>172,926</div>
+          </div>
+        </div>
+
+        <!-- Card 2: 452,774 -->
+        <div class="proof-donut-card">
+          <div class="pdc-period" style="font-size:.6rem;opacity:.5;text-align:left;padding-left:4px;">5 Dec – 3 Jan</div>
+          <div style="font-size:.65rem;opacity:.6;text-align:left;padding-left:4px;margin-bottom:8px;">Last 30 days ▾</div>
+          <div class="donut-wrap">
+            <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" fill="none" stroke="#333" stroke-width="12"/><circle cx="40" cy="40" r="32" fill="none" stroke="url(#g2)" stroke-width="12" stroke-dasharray="150 52" stroke-linecap="round" transform="rotate(-90 40 40)"/><defs><linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#9c27b0"/><stop offset="100%" stop-color="#e91e63"/></linearGradient></defs></svg>
+            <div class="donut-center">Views<br>452,774</div>
+          </div>
+        </div>
+
+        <!-- Card 3: 1,049,807 -->
+        <div class="proof-donut-card">
+          <div class="pdc-period" style="font-size:.6rem;opacity:.5;text-align:left;padding-left:4px;">19 Dec – 17 Jan</div>
+          <div style="font-size:.65rem;opacity:.6;text-align:left;padding-left:4px;margin-bottom:8px;">Last 30 days ▾</div>
+          <div class="donut-wrap">
+            <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" fill="none" stroke="#333" stroke-width="12"/><circle cx="40" cy="40" r="32" fill="none" stroke="url(#g3)" stroke-width="12" stroke-dasharray="170 32" stroke-linecap="round" transform="rotate(-90 40 40)"/><defs><linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#9c27b0"/><stop offset="100%" stop-color="#e91e63"/></linearGradient></defs></svg>
+            <div class="donut-center">Views<br>1,049,807</div>
+          </div>
+        </div>
+
+        <!-- Card 4: 1,193,836 -->
+        <div class="proof-donut-card">
+          <div class="pdc-period" style="font-size:.6rem;opacity:.5;text-align:left;padding-left:4px;"> </div>
+          <div style="font-size:.65rem;opacity:.6;text-align:left;padding-left:4px;margin-bottom:8px;">Views ⓘ</div>
+          <div class="donut-wrap">
+            <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" fill="none" stroke="#333" stroke-width="12"/><circle cx="40" cy="40" r="32" fill="none" stroke="url(#g4)" stroke-width="12" stroke-dasharray="180 22" stroke-linecap="round" transform="rotate(-90 40 40)"/><defs><linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#7b1fa2"/><stop offset="100%" stop-color="#c62828"/></linearGradient></defs></svg>
+            <div class="donut-center">Views<br>1,193,836</div>
+          </div>
+        </div>
+
+        <!-- Card 5: 3,770,260 -->
+        <div class="proof-donut-card" style="border:2px solid var(--gold);">
+          <div class="pdc-period" style="font-size:.6rem;opacity:.5;text-align:left;padding-left:4px;">9 Jan – 7 Feb</div>
+          <div style="font-size:.65rem;opacity:.6;text-align:left;padding-left:4px;margin-bottom:8px;">Last 30 days ▾</div>
+          <div class="donut-wrap">
+            <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" fill="none" stroke="#333" stroke-width="12"/><circle cx="40" cy="40" r="32" fill="none" stroke="url(#g5)" stroke-width="12" stroke-dasharray="196 6" stroke-linecap="round" transform="rotate(-90 40 40)"/><defs><linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f5c518"/><stop offset="100%" stop-color="#e91e63"/></linearGradient></defs></svg>
+            <div class="donut-center" style="color:var(--gold);">Views<br>3,770,260</div>
+          </div>
+        </div>
+
+      </div><!-- end views row -->
+
+      <!-- Bottom row: profile + dashboards + leads -->
+      <div class="proof-bottom-row">
+
+        <!-- Profile card -->
+        <div class="proof-profile-card">
+          <div class="ppc-handle">kazirangagreensfa ✓</div>
+          <div class="ppc-name">Kaziranga Greens FA</div>
+          <div class="ppc-stats">
+            <div class="ppc-stat"><span class="val">29</span><span class="lbl">posts</span></div>
+            <div class="ppc-stat"><span class="val">6,743</span><span class="lbl">followers</span></div>
+            <div class="ppc-stat"><span class="val">20</span><span class="lbl">following</span></div>
+          </div>
+          <div class="ppc-bio">Developing disciplined, high-IQ young players. European-standard training and Residential Academy. 📍 Nagaon, Nagaon 782002</div>
+          <div class="ppc-dashboard">
+            Professional dashboard<br>
+            <span class="views-highlight">↗ 32.5L views in the last 30 days.</span>
+          </div>
+        </div>
+
+        <!-- Dashboards column -->
+        <div class="proof-dash-card">
+          <div class="pdc2-row">
+            <div class="label">Professional dashboard</div>
+            <div class="val"><span class="green">↗</span> 3.3L views in the last 30 days.</div>
+          </div>
+          <div class="pdc2-row">
+            <div class="label">Professional dashboard</div>
+            <div class="val"><span class="green">↗</span> 37.7L views in the last 30 days.</div>
+          </div>
+        </div>
+
+        <!-- Leads column -->
+        <div class="proof-leads-card">
+          <div class="lead-item">
+            <div class="lead-avatar" style="background:#e91e63;">A</div>
+            <div class="lead-info">
+              <div class="ln">Active now</div>
+              <div class="lt">Viewed your profile</div>
+            </div>
+            <div class="lead-badge">Lead</div>
+          </div>
+          <div class="lead-item">
+            <div class="lead-avatar" style="background:#9c27b0;">P</div>
+            <div class="lead-info">
+              <div class="ln">pas_sangoo</div>
+              <div class="lt">Sir what is the p...</div>
+            </div>
+            <div class="lead-badge">Lead</div>
+          </div>
+          <div class="lead-item">
+            <div class="lead-avatar" style="background:#1976d2;">T</div>
+            <div class="lead-info">
+              <div class="ln">tecki_tsering_04</div>
+              <div class="lt">When · 1d</div>
+            </div>
+            <div class="lead-badge">Lead</div>
+          </div>
+          <div class="lead-item">
+            <div class="lead-avatar" style="background:#388e3c;">M</div>
+            <div class="lead-info">
+              <div class="ln">Ramjan Matey</div>
+              <div class="lt">Auto-detected o...</div>
+            </div>
+            <div class="lead-badge">Lead</div>
+          </div>
+          <div class="lead-item">
+            <div class="lead-avatar" style="background:#f57c00;">K</div>
+            <div class="lead-info">
+              <div class="ln">KHINEN_...</div>
+              <div class="lt">This one na sir? · 29m</div>
+            </div>
+            <div class="lead-badge">Lead</div>
+          </div>
+        </div>
+
+      </div><!-- end bottom row -->
+
+      <!-- Overlay labels -->
+      <div class="views-vs-leads-overlay" style="position:relative;margin-top:-280px;margin-bottom:0;height:0;display:flex;align-items:center;justify-content:center;gap:16px;z-index:10;pointer-events:none;">
+        <span class="ovl-views">VIEWS</span>
+        <span class="ovl-vs">V/S</span>
+        <span class="ovl-leads">LEADS</span>
+      </div>
+
+    </div><!-- proof-inner-wrap -->
+  </div><!-- proof-container -->
+</section>
+
+<!-- KEY METRICS -->
+<section class="metrics" style="padding:80px 60px;">
+  <div class="metrics-header">Key Metrics for Exponential Growth</div>
+  <div class="metrics-rows">
+    <div class="metric-row">
+      <div class="m-label">TOTAL VIEWS:</div>
+      <div class="m-value">326K TO 3.7M</div>
+      <div class="m-badge">11.3X<br>Growth</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">TOTAL REACH:</div>
+      <div class="m-value">76K TO 1.78M</div>
+      <div class="m-badge">22x<br>Growth</div>
+    </div>
+    <div class="metric-row" style="grid-template-columns:1fr auto;">
+      <div class="m-label">NON-FOLLOWER ENGAGEMENT:</div>
+      <div class="m-badge" style="font-size:1.2rem;padding:22px 30px;">53–83%</div>
+    </div>
+  </div>
+  <div style="font-family:'Oswald',sans-serif;font-size:1rem;letter-spacing:3px;color:var(--gold);margin-top:28px;text-transform:uppercase;opacity:.8;">Performance Data</div>
+</section>
+
+<!-- THE SHIFT -->
+<section class="shift">
+  <h2>Structure Replaced Guesswork</h2>
+  <div class="shift-grid">
+    <div class="shift-card">
+      <h3>System-Driven Growth</h3>
+      <p>Every decision backed by data. Every action part of a defined process. No more hoping—only executing proven frameworks.</p>
+    </div>
+    <div class="shift-card">
+      <h3>Repeatable Performance</h3>
+      <p>What worked once now works consistently. The system produces predictable results month after month, independent of external factors.</p>
+    </div>
+    <div class="shift-card">
+      <h3>Audience Expansion</h3>
+      <p>Content reached far beyond existing networks. New markets discovered. Geographic boundaries eliminated through digital presence.</p>
+    </div>
+  </div>
+  <div class="shift-quote">
+    THE SHIFT: From <em>"Will we get leads this month?"</em> to <em>"How many can we handle?"</em>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <div class="testimonial-left">
+    <h2>Client Testimonial</h2>
+    <p class="name">Madhujya Madhab Bora</p>
+    <p class="name">Founder, Kaziranga Greens Football Academy</p>
+  </div>
+  <div class="testimonial-right">
+    "Initially when we started we were expecting to generate 200–300 Leads in 3 Months. But they got me 500 leads in the first 10 days."
+    <cite>— Madhujya Madhab Bora, Founder · Kaziranga Greens Football Academy</cite>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>This System Is Repeatable</h2>
+  <p class="problem-reframe">Most academies don't have a demand problem. <strong>They have a System Problem.</strong><br>
+  We build structured admissions systems that generate consistent, high-quality trial bookings and convert them into players.</p>
+  <div class="sprint">We implement this through our <em>Elite Admissions Sprint™</em></div>
+  <p class="sprint-desc">A 90-day system designed to generate 50–100 qualified trials.</p>
+  <a class="cta-btn" href="https://bio.site/sauravbora" target="_blank" rel="noopener">Steal the Exact System &amp; Funnel — Free</a>
+  <p class="cta-sub">Check the featured section for access</p>
+</section>
+
+<footer>
+  &copy; 2025 CineCompass Creations · Kaziranga Greens Football Academy Case Study
+</footer>
+
+</body>
+</html>
